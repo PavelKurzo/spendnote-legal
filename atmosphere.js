@@ -1,4 +1,12 @@
 (function () {
+    if ("scrollRestoration" in history) {
+        history.scrollRestoration = "manual";
+    }
+    window.scrollTo(0, 0);
+    window.addEventListener("pageshow", function () {
+        window.scrollTo(0, 0);
+    });
+
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const blobs = document.querySelectorAll("[data-blob]");
     if (!blobs.length) return;
