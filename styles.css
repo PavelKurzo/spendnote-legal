@@ -22,20 +22,61 @@ body {
     min-height: 100vh;
     font-family: "SF Pro Text", "Segoe UI", system-ui, -apple-system, sans-serif;
     color: var(--text);
-    background:
-        radial-gradient(circle at 85% -10%, #9ec2ff 0%, transparent 42%),
-        radial-gradient(circle at 8% 110%, #7aa6ff 0%, transparent 36%),
-        var(--bg);
+    background: var(--bg);
     line-height: 1.65;
 }
 
+.atmosphere {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.blob {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    filter: blur(72px);
+    background: rgb(51 122 235);
+    opacity: 0.3;
+    transform: translate(-50%, -50%);
+    will-change: transform, background-color;
+}
+
+.blob:nth-child(1) {
+    transform: translate(-50%, -50%) translate(140px, -220px);
+}
+
+.blob:nth-child(2) {
+    width: 280px;
+    height: 280px;
+    background: rgb(71 158 245);
+    opacity: 0.26;
+    transform: translate(-50%, -50%) translate(-160px, 240px);
+}
+
+.blob:nth-child(3) {
+    width: 230px;
+    height: 230px;
+    background: rgb(92 128 240);
+    opacity: 0.22;
+    transform: translate(-50%, -50%) translate(80px, 180px);
+}
+
 .wrap {
-    width: min(780px, calc(100% - 32px));
+    position: relative;
+    z-index: 1;
+    width: min(860px, calc(100% - 32px));
     margin: 0 auto;
     padding: 28px 0 64px;
 }
 
-.hero, .card {
+.hero, .card, .feature, .note {
     background: var(--card);
     border: 1px solid rgba(255, 255, 255, 0.7);
     box-shadow: var(--shadow);
@@ -67,6 +108,7 @@ body {
     color: white;
     background: linear-gradient(180deg, #5b8fff, var(--accent));
     font-size: 22px;
+    box-shadow: 0 10px 22px rgba(47, 111, 235, 0.28);
 }
 
 .brand h1 {
@@ -134,8 +176,13 @@ h3 {
     color: var(--text);
 }
 
-.meta, .foot {
+.meta, .foot, .lede {
     color: var(--muted);
+}
+
+.lede {
+    font-size: 17px;
+    max-width: 38em;
 }
 
 ul {
@@ -146,11 +193,99 @@ a {
     color: var(--accent);
 }
 
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 18px 0 0;
+}
+
+.chip {
+    background: var(--accent-soft);
+    color: var(--text);
+    border-radius: 999px;
+    padding: 6px 12px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.section {
+    margin-top: 20px;
+}
+
+.section-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    align-items: end;
+    margin: 0 4px 12px;
+}
+
+.section-head h3 {
+    margin: 0;
+}
+
+.section-head p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
+}
+
 .grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 12px;
     margin: 24px 0 8px;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.feature {
+    padding: 20px;
+    border-radius: 22px;
+}
+
+.icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: var(--accent-soft);
+    color: var(--accent);
+    margin-bottom: 12px;
+}
+
+.icon svg {
+    width: 18px;
+    height: 18px;
+}
+
+.feature strong, .tile strong, .note strong {
+    display: block;
+    margin-bottom: 4px;
+    letter-spacing: -0.02em;
+}
+
+.feature p, .note p, .tile {
+    margin: 0;
+    color: var(--muted);
+    font-size: 15px;
+}
+
+.notes {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+}
+
+.note {
+    padding: 18px;
+    border-radius: 22px;
 }
 
 .tile {
@@ -161,11 +296,16 @@ a {
     border-radius: 20px;
     background: rgba(255, 255, 255, 0.7);
     border: 1px solid var(--line);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.tile:hover {
+    transform: translateY(-2px);
+    border-color: rgba(47, 111, 235, 0.28);
 }
 
 .tile strong {
-    display: block;
-    margin-bottom: 4px;
+    color: var(--text);
 }
 
 .foot {
@@ -174,16 +314,22 @@ a {
 }
 
 @media (max-width: 720px) {
-    .hero, .grid {
+    .hero, .grid, .features, .notes, .section-head {
         grid-template-columns: 1fr;
         display: grid;
     }
 
-    .hero {
+    .hero, .section-head {
         align-items: start;
     }
 
     h2 {
         font-size: 28px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .blob, .tile {
+        transition: none !important;
     }
 }

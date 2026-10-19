@@ -8,6 +8,12 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="atmosphere" aria-hidden="true">
+        <div class="blob" data-blob></div>
+        <div class="blob" data-blob></div>
+        <div class="blob" data-blob></div>
+    </div>
+
     <div class="wrap">
         <header class="hero">
             <div class="brand">
@@ -24,22 +30,109 @@
             </nav>
         </header>
 
-        <main class="card">
-            <p class="kicker">Legal</p>
-            <h2>SpendNote on the App Store</h2>
-            <p>SpendNote helps you log personal expenses, keep a simple savings note, and split costs in shared Spaces. It is not a bank and it does not convert currencies.</p>
-            <div class="grid">
-                <a class="tile" href="privacy.html">
-                    <strong>Privacy Policy</strong>
-                    What data SpendNote stores, why, and how you can delete it.
-                </a>
-                <a class="tile" href="terms.html">
-                    <strong>Terms of Use</strong>
-                    The rules for using the app, Spaces, and your account.
-                </a>
-            </div>
-            <p class="foot">Operator: Pavel Kurzo · Contact: <a href="mailto:pavel.kurzo@mail.ru">pavel.kurzo@mail.ru</a></p>
+        <main>
+            <section class="card">
+                <p class="kicker">iOS app</p>
+                <h2>See where your money goes</h2>
+                <p class="lede">Log an expense in seconds, keep a private savings note, and use Spaces so everyone can see who paid and who owes. SpendNote is a record-keeping tool — not a bank, and it does not convert currencies.</p>
+                <div class="chips">
+                    <span class="chip">iOS 17.6+</span>
+                    <span class="chip">No ads</span>
+                    <span class="chip">No analytics SDKs</span>
+                    <span class="chip">Sign in with Apple</span>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="section-head">
+                    <h3>What you can do</h3>
+                    <p>The same tools that live in the app.</p>
+                </div>
+                <div class="features">
+                    <article class="feature">
+                        <div class="icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M2 10h20"/></svg>
+                        </div>
+                        <strong>Expenses</strong>
+                        <p>Amount-first entry with categories, receipts, an optional place, and a split that can stay personal or go into a Space.</p>
+                    </article>
+                    <article class="feature">
+                        <div class="icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-2.8 3.2-7 6.8-7 11a7 7 0 0 0 14 0c0-4.2-4.2-7.8-7-11z"/></svg>
+                        </div>
+                        <strong>Savings</strong>
+                        <p>A private note of money you set aside or take out. It is not a bank balance, and it is not counted as spending.</p>
+                    </article>
+                    <article class="feature">
+                        <div class="icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="3"/><circle cx="16" cy="8" r="3"/><circle cx="12" cy="16" r="3"/><path d="M8 11c-2.2 0-4 1.6-4 3.5V16h8v-1.5C12 12.6 10.2 11 8 11zm8 0c-.7 0-1.3.2-1.9.4"/></svg>
+                        </div>
+                        <strong>Spaces</strong>
+                        <p>Shared costs, who paid, equal or custom splits, balances, and a record of settlements. SpendNote does not move money.</p>
+                    </article>
+                    <article class="feature">
+                        <div class="icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12A9 9 0 1 1 12 3v9z"/><path d="M12 3a9 9 0 0 1 9 9h-9z" fill="currentColor" stroke="none" opacity="0.35"/></svg>
+                        </div>
+                        <strong>Insights</strong>
+                        <p>Totals by category and period. Each currency is counted on its own, so nothing is converted behind the scenes.</p>
+                    </article>
+                    <article class="feature">
+                        <div class="icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+                        </div>
+                        <strong>Home Screen widgets</strong>
+                        <p>Type an amount on the widget and add it without opening the app. If you were offline, it syncs when you come back.</p>
+                    </article>
+                    <article class="feature">
+                        <div class="icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="4"/><circle cx="9" cy="9" r="1.1" fill="currentColor" stroke="none"/><circle cx="15" cy="9" r="1.1" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.1" fill="currentColor" stroke="none"/><circle cx="9" cy="15" r="1.1" fill="currentColor" stroke="none"/><circle cx="15" cy="15" r="1.1" fill="currentColor" stroke="none"/></svg>
+                        </div>
+                        <strong>Who pays?</strong>
+                        <p>A local spinner for deciding in the moment. It stays on your device and does not set who paid a shared expense.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="section-head">
+                    <h3>How SpendNote works</h3>
+                    <p>A few things the app is careful about.</p>
+                </div>
+                <div class="notes">
+                    <article class="note">
+                        <strong>Not a bank</strong>
+                        <p>Savings and settlements are notes you keep. SpendNote never holds or transfers money.</p>
+                    </article>
+                    <article class="note">
+                        <strong>No currency conversion</strong>
+                        <p>Amounts stay in the currency you enter. Shared balances only include that Space’s currency.</p>
+                    </article>
+                    <article class="note">
+                        <strong>Delete anytime</strong>
+                        <p>Sign in with email or Apple. Delete Account in Profile permanently removes your SpendNote data.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="card section">
+                <p class="kicker">Legal</p>
+                <h2>Privacy and terms</h2>
+                <p class="lede">These pages are the public policies for SpendNote. You can also open them from Profile in the app.</p>
+                <div class="grid">
+                    <a class="tile" href="privacy.html">
+                        <strong>Privacy Policy</strong>
+                        What data SpendNote stores, who can see shared Spaces, and how you can delete your account.
+                    </a>
+                    <a class="tile" href="terms.html">
+                        <strong>Terms of Use</strong>
+                        The rules for using the app, Spaces, widgets, and your account.
+                    </a>
+                </div>
+                <p class="foot">Operator: Pavel Kurzo · Contact: <a href="mailto:pavel.kurzo@mail.ru">pavel.kurzo@mail.ru</a></p>
+            </section>
         </main>
     </div>
+    <script src="atmosphere.js"></script>
 </body>
 </html>
